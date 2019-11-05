@@ -1,2 +1,2 @@
-# completionist
+# Completionist
 Repository for our program Completionist
