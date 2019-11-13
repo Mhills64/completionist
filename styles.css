@@ -1,0 +1,39 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+.box {
+    display: flex;
+    flex-flow: column;
+    min-height: 100%;
+}
+
+.navbar {
+    flex: 0 1 auto;
+}
+
+.row {
+    flex: 1 1 auto;
+}
+
+.request {
+    background-color: #255C99;
+    overflow: hidden;
+    border: 2px solid gray;
+}
+
+#projects {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.btn-custom {
+    color: white;
+    border-color: white;
+}
