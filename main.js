@@ -4,8 +4,8 @@ var mapLoaded = false;
 $(document).ready(function() {
    populateProjects(1, "Completionist", "314owen", "An app that allows you to find others nearby who are interested in working on projects with you.", 69, 43.0846, -77.6743);
    populateProjects(2, "GeoTrash", "Anisa", "Find that trash wooo!", 22, 43.0945, -77.6747);
-   populateProjects(3, "Refugee something", "Matt", "The best idea ever", 60, 43.0752, -77.6641);
-   populateProjects(4, "I forget the name", "M2tt", "Completionist 2: Electric Bogaloo", 12, 43.0894, -77.6834);
+   populateProjects(3, "Refugee something", "Matt", "I need refugees to work for me with no pay at all b/c you are refugees", 60, 43.0752, -77.6641);
+   populateProjects(4, "I forget the name", "M2tt", "The matt that actaully does stuff", 12, 43.0894, -77.6834);
 
    addMarkers();
 });
