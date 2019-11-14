@@ -15,7 +15,10 @@ var map;
 
 // Basic function that populates list of projects
 function populateProjects(id, projectName, userName, desc, percent, lat, long) {
-    $( "#projects" ).append("<div class='p-2 m-2 request'> <h5 class='text-white'> " + projectName + " </h5> <p class='text-white m-0 p-0'> " + desc + "</p> <div class='progress my-3'> <div class='progress-bar' role='progressbar' style='width: " + percent + "%' aria-valuenow='" + percent + "' aria-valuemin='0' aria-valuemax='100'>" + percent + "%</div> </div> <button class='btn btn-outline-primary btn-custom float-left'> Learn more </button> <button class='btn btn-outline-primary btn-custom float-right'> I can help! </button> </div>")
+    $( "#projects" ).append("<div class='p-2 m-2 request'> <h5 class='text-white'> " +
+        projectName + " </h5> <p class='text-white m-0 p-0'> " + desc +
+        "</p> <div class='progress my-3'> <div class='progress-bar' role='progressbar' style='width: " + percent + "%' aria-valuenow='" + percent +
+        "' aria-valuemin='0' aria-valuemax='100'>" + percent + "%</div> </div> <p class='float-left text-white'> Created by <a href=''>" + userName + "</a></p> <button class='btn btn-outline-primary btn-custom float-right'> I can help! </button> </div>")
     projects.push({id: id, lat: lat, long: long});
 }
 

@@ -37,3 +37,12 @@ html, body {
     color: white;
     border-color: white;
 }
+
+a {
+    color: #7EA3CC;
+}
+
+a:hover {
+    color: #FF7700;
+    text-decoration: none;
+}
