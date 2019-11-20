@@ -31,7 +31,6 @@ function initMap() {
 }
 
 
-
 $("#create").click(function(e) {
 	e.preventDefault();
 	var ulat, ulng = 0;

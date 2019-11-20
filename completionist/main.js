@@ -1,6 +1,7 @@
 
 var mapLoaded = false;
 
+// Must be changed because it effects creating a project
 $(document).ready(function() {
    populateProjects(1, "Completionist", "314owen", "An app that allows you to find others nearby who are interested in working on projects with you.", 69, 43.0846, -77.6743);
    populateProjects(2, "GeoTrash", "Anisa", "Find that trash wooo!", 22, 43.0945, -77.6747);
@@ -31,13 +32,38 @@ function initMap() {
     mapLoaded = true;
 }
 
+let newprojid = 5;
+let newprojcreated = false;
+
+if (newprojcreated === false) {
+    $("#create").click(function (e) {
+        e.preventDefault();
+        var ulat, ulng = 0;
+        navigator.geolocation.getCurrentPosition(function (position) {
+            ulat = position.coords.latitude;
+            ulng = position.coords.longitude;
+            populateProjects(newprojid, "Test", "test", "Test", 75, ulat, ulng);
+            let newmark = new google.maps.Marker({position: {lat: ulat, lng: ulng}, map: map});
+            newmark.addListener('click', function () {
+                switchToInfo(newprojid);
+            });
+
+        });
+    newprojcreated = true
+    });
+
+}
+else {
+    console.log('Can only create 1 new project')
+
+}
 function addMarkers() {
     if (mapLoaded) {
         for (let i = 0; i < projects.length; i++) {
             let marker = new google.maps.Marker({position: {lat: projects[i].lat, lng: projects[i].long}, map: map, title: projects[i].projectName});
             marker.addListener("click", function() {
                 console.log(projects[i].id);
-               switchToInfo(projects[i].id);
+                switchToInfo(projects[i].id);
             });
         }
     } else {
@@ -54,6 +80,9 @@ function switchToInfo(id) {
     $("#info").html("<button class='btn btn-outline-primary m-3' onclick='backToMap();'>Back</button> <div class='my-3 text-center'><h2> " +
         projectObject.projectName + " </h2>" + imageSlideShow() + "<p> " + projectObject.desc + " </p></div>");
 }
+
+
+
 
 function imageSlideShow() {
     return '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">\n' +
