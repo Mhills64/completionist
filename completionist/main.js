@@ -33,30 +33,31 @@ function initMap() {
 }
 
 let newprojid = 5;
-let newprojcreated = false;
+let projs = 0;
 
-if (newprojcreated === false) {
     $("#create").click(function (e) {
+        if (projs < 2) {
         e.preventDefault();
         var ulat, ulng = 0;
         navigator.geolocation.getCurrentPosition(function (position) {
             ulat = position.coords.latitude;
             ulng = position.coords.longitude;
+            projs += 1;
             populateProjects(newprojid, "Test", "test", "Test", 75, ulat, ulng);
             let newmark = new google.maps.Marker({position: {lat: ulat, lng: ulng}, map: map});
             newmark.addListener('click', function () {
                 switchToInfo(newprojid);
             });
-
+            return projs
         });
-    newprojcreated = true
+
+        } else {
+            e.preventDefault();
+            console.log('Can only add 2 projects')
+        }
     });
 
-}
-else {
-    console.log('Can only create 1 new project')
 
-}
 function addMarkers() {
     if (mapLoaded) {
         for (let i = 0; i < projects.length; i++) {
