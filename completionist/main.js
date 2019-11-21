@@ -92,8 +92,8 @@ function switchToInfo(id) {
     let projectObject = projects.find(item => item.id === id);
     $("#map").hide();
     $("#info").show();
-    $("#info").html("<button class='btn btn-outline-primary m-3' onclick='backToMap();'>Back</button> <div class='my-3 text-center'><h2> " +
-        projectObject.projectName + " </h2>" + imageSlideShow() + "<p> " + projectObject.desc + " </p></div>");
+    $("#info").html("<button class='btn btn-outline-primary m-3' onclick='backToMap();'>Back</button> <div class='my-1 text-center'><h2> " +
+        projectObject.projectName + " </h2>" + imageSlideShow() + "<p><h4> " + projectObject.desc + " </h4></p></div>");
 }
 
 
@@ -108,13 +108,13 @@ function imageSlideShow() {
         '  </ol>\n' +
         '  <div class="carousel-inner">\n' +
         '    <div class="carousel-item active">\n' +
-        '      <img class="d-block w-100" src="img/1.jpg" alt="First slide">\n' +
+        '      <img style = "border:5px solid cornflowerblue" class="d-inline w-75" src="img/1.jpg" alt="First slide">\n' +
         '    </div>\n' +
         '    <div class="carousel-item">\n' +
-        '      <img class="d-block w-100" src="img/2.jpg" alt="Second slide">\n' +
+        '      <img style = "border:5px solid cornflowerblue" class="d-inline w-75" src="img/2.jpg" alt="Second slide">\n' +
         '    </div>\n' +
         '    <div class="carousel-item">\n' +
-        '      <img class="d-block w-100" src="img/3.jpg" alt="Third slide">\n' +
+        '      <img style = "border:5px solid cornflowerblue" class="d-inline w-75" src="img/3.jpg" alt="Third slide">\n' +
         '    </div>\n' +
         '  </div>\n' +
         '  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">\n' +
