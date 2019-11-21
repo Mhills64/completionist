@@ -22,7 +22,7 @@ function populateProjects(id, projectName, userName, desc, percent, lat, long) {
     $( "#projects" ).append("<div class='p-2 m-2 request'> <h5 class='text-white'> " +
         projectName + " </h5> <p class='text-white m-0 p-0'> " + desc +
         "</p> <div class='progress my-3'> <div class='progress-bar' role='progressbar' style='width: " + percent + "%' aria-valuenow='" + percent +
-        "' aria-valuemin='0' aria-valuemax='100'>" + percent + "%</div> </div> <p class='float-left text-white'> Created by <a href=''>" + userName + "</a></p> <button class='btn btn-outline-primary btn-custom float-right'> I can help! </button> </div>")
+        "' aria-valuemin='0' aria-valuemax='100'>" + percent + "%</div> </div> <p class='float-left text-white'> Created by <a href=''>" + userName + "</a></p> <button class='btn btn-outline-primary btn-custom float-right'> I can help! </button> </div>");
     projects.push({id: id, projectName: projectName, userName: userName, desc: desc, percent: percent, lat: lat, long: long});
 }
 
@@ -41,23 +41,25 @@ let projs = 0;
 $("#create").click(function (e) {
     if (projs < 2) {
         e.preventDefault();
-        $("#creating").show();
-        //$("#namefield").show();
+        $("#info_create").show();
+        $("#map").hide();
         $("#name").click(function(f){
-            let proname = $("#namefield").val(), prodesc = $("#desc").val(), properc=  $("#percent").val();
+            let proname = $("#namefield").val(), prodesc = $("#desc").val(), properc=  $("#percent").val(), propname= $("#projfield").val();
             f.preventDefault();
             var ulat, ulng = 0;
             navigator.geolocation.getCurrentPosition(function (position) {
                 ulat = position.coords.latitude;
                 ulng = position.coords.longitude;
                 projs += 1;
-                populateProjects(newprojid, proname, "test", prodesc, properc, ulat, ulng);
+                populateProjects(newprojid, propname, proname, prodesc, properc, ulat, ulng);
                 let newmark = new google.maps.Marker({position: {lat: ulat, lng: ulng}, map: map});
                 newmark.addListener('click', function () {
                     switchToInfo(newprojid);
                 });
                 return projs
             });
+            $("#info_create").hide();
+            $("#map").show();
         });
 
     } else {
@@ -83,10 +85,7 @@ function addMarkers() {
     }
 }
 
-function creating() {
 
-
-}
 
 function switchToInfo(id) {
     let projectObject = projects.find(item => item.id === id);

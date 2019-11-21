@@ -22,12 +22,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <form class="form-inline my-2 my-lg-0">
-                    <div id = "creating">
-                        <input id = "desc" class="form-control mr-sm-2" type="text" placeholder="desc" aria-label="name" size = 12>
-                        <input id = "percent" class="form-control mr-sm-2" type="text" placeholder="perc" aria-label="name" size = 12>
-                        <input id = "namefield" class="form-control mr-sm-2" type="text" placeholder="Name" aria-label="name" size = 12>
-                        <button id = "name" class="btn btn-outline-success my-2 my-sm-0 mr-3 btn-custom" type="submit">Submit</button>
-                    </div>
+
                     <button id = "create" class="btn btn-outline-success my-2 my-sm-0 mr-4 btn-custom">Create Project</button>
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0 btn-custom" type="submit">Search</button>
@@ -45,6 +40,18 @@
             </div>
             <div id="info" style="display: none; background-color: #c5e7e2">
                 <p> Test </p>
+            </div>
+            <div id="info_create" style="display: none;">
+                <button class='btn btn-outline-primary m-3' onclick='backToMap();'>Back</button>
+                <div style="display: flex; justify-content: center; height:400px; padding:10px; text-align: center" >
+                    <div style="display: flex; flex-direction: column; justify-content: center; border:10px #232323; background-color: #525252" >
+                        <input id = "projfield" class="mr-4 ml-4 m-3 p-2" type="text" placeholder="Project Name" aria-label="name" size = 20>
+                        <input id = "namefield" class="mr-4 ml-4 m-3 p-2" type="text" placeholder="Name" aria-label="name" size = 20>
+                        <input id= "desc" style="height:50px; max-width:300px" class="mr-4 ml-4 m-3 p-2" type="text" placeholder="Description" aria-label="name" size="180">
+                        <input id = "percent" class="mr-4 ml-4 m-3 p-2" type="text" placeholder="Percent" aria-label="name" size = 6>
+                        <button id = "name" class="btn btn-outline-success my-2 my-sm-0 m-3 btn-custom" type="submit">Submit</button>
+                    </div>
+                </div>
             </div>
         </div>
 
