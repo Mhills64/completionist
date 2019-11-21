@@ -3,6 +3,9 @@ var mapLoaded = false;
 
 // Must be changed because it effects creating a project
 $(document).ready(function() {
+    $("#creating").hide();
+    //$("#name").hide();
+    //$("#namefield").hide();
    populateProjects(1, "Completionist", "314owen", "An app that allows you to find others nearby who are interested in working on projects with you.", 69, 43.0846, -77.6743);
    populateProjects(2, "GeoTrash", "Anisa", "Find that trash wooo!", 22, 43.0945, -77.6747);
    populateProjects(3, "Refugee something", "Matt", "I need refugees to work for me with no pay at all b/c you are refugees", 60, 43.0752, -77.6641);
@@ -35,27 +38,33 @@ function initMap() {
 let newprojid = 5;
 let projs = 0;
 
-    $("#create").click(function (e) {
-        if (projs < 2) {
+$("#create").click(function (e) {
+    if (projs < 2) {
         e.preventDefault();
-        var ulat, ulng = 0;
-        navigator.geolocation.getCurrentPosition(function (position) {
-            ulat = position.coords.latitude;
-            ulng = position.coords.longitude;
-            projs += 1;
-            populateProjects(newprojid, "Test", "test", "Test", 75, ulat, ulng);
-            let newmark = new google.maps.Marker({position: {lat: ulat, lng: ulng}, map: map});
-            newmark.addListener('click', function () {
-                switchToInfo(newprojid);
+        $("#creating").show();
+        //$("#namefield").show();
+        $("#name").click(function(f){
+            let proname = $("#namefield").val(), prodesc = $("#desc").val(), properc=  $("#percent").val();
+            f.preventDefault();
+            var ulat, ulng = 0;
+            navigator.geolocation.getCurrentPosition(function (position) {
+                ulat = position.coords.latitude;
+                ulng = position.coords.longitude;
+                projs += 1;
+                populateProjects(newprojid, proname, "test", prodesc, properc, ulat, ulng);
+                let newmark = new google.maps.Marker({position: {lat: ulat, lng: ulng}, map: map});
+                newmark.addListener('click', function () {
+                    switchToInfo(newprojid);
+                });
+                return projs
             });
-            return projs
         });
 
-        } else {
-            e.preventDefault();
-            console.log('Can only add 2 projects')
-        }
-    });
+    } else {
+        e.preventDefault();
+        console.log('Can only add 2 projects')
+    }
+});
 
 
 function addMarkers() {
@@ -72,6 +81,11 @@ function addMarkers() {
             addMarkers();
         }, 200);
     }
+}
+
+function creating() {
+
+
 }
 
 function switchToInfo(id) {
