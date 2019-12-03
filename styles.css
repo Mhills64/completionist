@@ -4,8 +4,13 @@ html, body {
     overflow: hidden;
 }
 
-* {
+p, input, h2, h3, h4, h5, h6, button, a {
     font-family: 'Lato', sans-serif;
+}
+
+h1 {
+    font-family: 'Kalam', cursive;
+    font-size: 4em;
 }
 
 .box {
@@ -23,12 +28,78 @@ html, body {
 }
 
 .request {
-    background-color: #255C99;
+    background-color: #5BBECC;
     overflow: hidden;
-    border: 2px solid gray;
+    border: 4px solid #FBB13C;
 }
 
-#projects, #info {
+.chat-button {
+    border: none;
+    background-color: #5BBECC;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.chat-button:hover {
+    background-color: #5bcc68;
+    color: white;
+}
+
+.chat-button-link {
+    border: none;
+    background-color: #5BBECC;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.chat-button-link:hover {
+    background-color: #5bcc68;
+    color: white;
+}
+
+
+#chatSelect {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#textToAdd {
+    width: 100%;
+    margin-top: 1vh;
+}
+
+#bottomChat {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+#chatbox {
+    padding: 2em;
+    background-color: white;
+    width: 30vw;
+}
+
+#chatArea {
+    height: 50vh;
+    resize: none;
+    background-color: #e3e3e3;
+}
+
+#sendButton {
+    width: 100%;
+    margin-top: 1vh;
+}
+
+#projects, #info, #info_create {
     height: 100vh;
     overflow-y: auto;
 }
@@ -38,16 +109,160 @@ html, body {
     border-color: white;
 }
 
+.btn-custom:hover {
+    background-color: #5bcc68;
+    color: white;
+}
+
+.btn-custom-full {
+    background-color: #5BBECC;
+    color: white;
+    width: 100%;
+}
+
+.btn-custom-full:hover {
+    background-color: #5bcc68;
+    color: white;
+}
+
+.btn-custom-dark {
+    color: black;
+    border-color: black;
+}
+
+.btn-custom-dark:hover {
+    background-color: #5bcc68;
+    color: black;
+    border-color: black;
+}
+
 a {
-    color: #7EA3CC;
+    color: #5B6363;
 }
 
 a:hover {
-    color: #FF7700;
+    color: #CCDDDD;
     text-decoration: none;
 }
 
 #map, #info {
     width: 100%;
     height: 100%;
+}
+
+
+.div-center {
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid #FBB13C;
+}
+
+div.content {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.carousel-image {
+    max-width: 80%;
+    object-fit: cover;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #5B6363;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #FBB13C;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #FBB13C;
+    cursor: pointer;
+}
+
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+.lds-ellipsis div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #fff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(24px, 0);
+    }
 }
